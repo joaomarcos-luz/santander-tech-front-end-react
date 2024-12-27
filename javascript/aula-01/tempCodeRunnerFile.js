@@ -1,0 +1,1 @@
+console.log("Execultado DEPOIS da promesa")
