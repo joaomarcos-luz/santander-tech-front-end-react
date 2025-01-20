@@ -4,21 +4,20 @@ const taskLista = document.querySelector('#task-list-ul');
 
 let taskAdd = []
 
-form.addEventListener   ('submit', (event) => {
-    event.preventDefault();
+window.onload = () => {
+    const taskT = JSON.parse(localStorage.getItem('tasks'));
 
-    const tasks = taskInput.value;
+    if (!taskT) return; // Corrigido de 'task' para 'taskT'
 
-    if(tasks.length < 3) {
-        alert('Sua tarefa precisa ter, no minimo, 3 caracteres');
-        return;
-    }
+    taskAdd = taskT; // Atualizando a lista com as tarefas do localStorage
 
-    taskAdd.push({
-        task: tasks,
-        done: false
+    taskAdd.forEach(t => {
+        renderTasks(t.task, t.done); // Adicione o estado 'done' ao chamar renderTasks
     });
+};
 
+
+function renderTasks(tasks, done = false) {
     const li = document.createElement('li');
     
     const input = document.createElement('input');
@@ -28,12 +27,30 @@ form.addEventListener   ('submit', (event) => {
         const liTarggle = event.target.parentElement;
     
         const spanTarggle = liTarggle.querySelector('span');
+
+        if(done) {
+            spanTarggle.style.textDecoration = 'line-through';
+        }
     
         const done = event.target.checked;
     
         if (done) {
             spanTarggle.style.textDecoration = 'line-through';
-        } // Fechando o bloco do `if` corretamente
+        }else {
+            spanTarggle.style.textDecoration = 'none';
+        }
+
+        taskAdd = taskAdd.map(t => {
+            if(t.task === spanTarggle.textContent) {
+                return {
+                    task: t.task,
+                    done: !t.done
+                }
+            }
+            return t;
+        });
+        
+        localStorage.setItem('tasks', JSON.stringify(taskAdd));
     });
 
     const span = document.createElement('span');
@@ -51,6 +68,8 @@ form.addEventListener   ('submit', (event) => {
 
         taskLista.removeChild(liRemove);
         console.log(taskAdd);
+
+        localStorage.setItem('tasks', JSON.stringify(taskAdd));
     });
 
     span.textContent = tasks;
@@ -60,6 +79,27 @@ form.addEventListener   ('submit', (event) => {
     li.appendChild(button);
 
     taskLista.appendChild(li);
+}
+
+
+form.addEventListener   ('submit', (event) => {
+    event.preventDefault();
+
+    const tasks = taskInput.value;3
+
+    if(tasks.length < 3) {
+        alert('Sua tarefa precisa ter, no minimo, 3 caracteres');
+        return;
+    }
+
+    taskAdd.push({
+        task: tasks,
+        done: false
+    });
+
+    localStorage.setItem('tasks', JSON.stringify(taskAdd));
+
+    renderTasks(tasks);
 
     taskInput.value = '';
     
