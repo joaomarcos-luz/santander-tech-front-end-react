@@ -9,17 +9,31 @@ class App extends React.Component {
     return (
       <>
       <Navbar/>
+     
+      <section id="article">
+        <Article
+          title="Titulo 01"
+          providder="Noticia do Agro"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+"
+        />
+
+        <Article
+          title="Titulo 02"
+          providder="Concurso"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+"
+        />
+
+        <Article
+          title="Titulo 03"
+          providder="Cidade Alagada"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+"
+        />
+      </section>
 
       <Couter/>
-      {/* <section>
-         <Article title="Designig Deslords" provides="Nasa" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse veniam, quia quos accusamus cum mollitia incidunt, deserunt ab quidem dicta in accusantium quas velit at temporibus ut. Sint, distinctio tempora."/>
-
-         <Article title="Vibrant Portraits of 2020" provides="SpacNews" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse veniam, quia quos accusamus cum mollitia incidunt, deserunt ab quidem dicta in accusantium quas velit at temporibus ut. Sint, distinctio tempora."/>
-
-         <Article title="36 Days of Malayala Type" provides="SpacNews" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse veniam, quia quos accusamus cum mollitia incidunt, deserunt ab quidem dicta in accusantium quas velit at temporibus ut. Sint, distinctio tempora."/>
-
-         <Article title="Designew Dathsolord" provides="Desig" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse veniam, quia quos accusamus cum mollitia incidunt, deserunt ab quidem dicta in accusantium quas velit at temporibus ut. Sint, distinctio tempora."/>
-      </section> */}
       </>
     )
   }

@@ -1,8 +1,7 @@
 import React from "react"
 import "./styles.css"
 
-export class Navbar extends React.Component {
-    render() {
+export function Navbar() {
         return (
                 <header>
                   <nav id="navbar">
@@ -21,5 +20,4 @@ export class Navbar extends React.Component {
                   </nav>
                 </header>
         )
-    }
 }
